@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   labels:
     application: myeap
@@ -10,7 +10,13 @@ spec:
     matchLabels:
       deployment: myeap
   strategy:
-    type: Recreate
+    blueGreen:
+      activeService: myeap-active
+      previewService: myeap-preview
+      autoPromotionEnabled: true
+      previewReplicaCount: 1
+      autoPromotionSeconds: 300
+      scaleDownDelaySeconds: 30
   template:
     metadata:
       labels:

@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -5,7 +6,22 @@ metadata:
     description: The web server's http port.
   labels:
     application: myeap
-  name: myeap
+  name: myeap-active
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    deployment: myeap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    description: The web server's http port.
+  labels:
+    application: myeap
+  name: myeap-preview
 spec:
   ports:
   - port: 8080

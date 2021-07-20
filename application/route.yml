@@ -1,3 +1,4 @@
+---
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -12,4 +13,20 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: myeap
+    name: myeap-active
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    description: Route for application's https service.
+  labels:
+    application: myeap
+  name: myeap-preview
+spec:
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: myeap-preview

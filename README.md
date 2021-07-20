@@ -25,6 +25,14 @@ cluster-admin権限のユーザで行う。
 
 OperatorHubで"Red Hat OpenShift GitOps" (Red Hat公式のArgo CD) をインストールする。
 
+(コミュニティ版の) Argo Rolloutsをインストールする。
+
+```
+oc create namespace argo-rollouts
+oc apply -n argo-rollouts \
+  -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+```
+
 Argo CDの管理コンソールのURLを調べる。
 
     oc get route openshift-gitops-server -n openshift-gitops
