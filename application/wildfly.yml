@@ -5,7 +5,7 @@ metadata:
   labels:
     application: myeap
 spec:
-  applicationImage: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:4bfc2ad
+  applicationImage: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:65c2b94
   replicas: 2
   env:
   - name: ENABLE_ACCESS_LOG
