@@ -17,6 +17,8 @@ oc policy add-role-to-user admin \
 oc policy add-role-to-group system:image-puller \
   system:serviceaccounts:$(oc project -q) \
   -n ${SOURCE_NAMESPACE}
+  
+oc policy add-role-to-user view -z default
 ```
 
 # Argo CDのアプリケーションの設定
