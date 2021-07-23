@@ -15,7 +15,7 @@ patchesJson6902:
   patch: |-
     - op: replace
       path: /spec/applicationImage
-      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:latest
+      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:4bfc2ad
     - op: replace
       path: /spec/replicas
       value: 2
@@ -27,10 +27,10 @@ patchesJson6902:
   patch: |-
     - op: replace
       path: /spec/applicationImage
-      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:latest
+      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:813e788
     - op: replace
       path: /spec/replicas
-      value: 1
+      value: 0
 
 - target:
     version: v1
