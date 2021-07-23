@@ -27,10 +27,10 @@ patchesJson6902:
   patch: |-
     - op: replace
       path: /spec/applicationImage
-      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:813e788
+      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:ad72f15
     - op: replace
       path: /spec/replicas
-      value: 0
+      value: 1
 
 - target:
     version: v1
@@ -44,4 +44,4 @@ patchesJson6902:
     # Weight of myeap-green
     - op: replace
       path: /spec/alternateBackends/0/weight
-      value: 0
+      value: 50
