@@ -1,12 +1,12 @@
 apiVersion: wildfly.org/v1alpha1
 kind: WildFlyServer
 metadata:
-  name: myeap
+  name: myeap-green
   labels:
-    application: myeap
+    application: myeap-green
 spec:
-  applicationImage: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:65c2b94
-  replicas: 2
+  applicationImage: image-to-be-replaced
+  replicas: 0
   env:
   - name: ENABLE_ACCESS_LOG
     value: "true"

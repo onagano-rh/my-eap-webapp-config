@@ -44,6 +44,6 @@ adminユーザのパスワードを調べる。
 | Sync Policy      | Automatic                                          | "Prune Resources"と"Self Heal"にもチェックを入れる。    |
 | Repository URL   | https://github.com/onagano-rh/my-eap-webapp-config | 自分の設定用リポジトリ (このリポジトリ)。               |
 | Revision         | main                                               | 使用するブランチまたはタグ。                            |
-| Path             | application                                        | マニフェストがあるディレクトリ。                        |
+| Path             | overlays/staging                                   | マニフェストがあるディレクトリ。                        |
 | Cluster URL      | https://kubernetes.default.svc                     | デプロイ先のクラスタ。固定でよい。                      |
-| Namespace        | myeap-staging                                    | 上記で作成したデプロイ先の名前空間。                    |
+| Namespace        | myeap-staging                                      | 上記で作成したデプロイ先の名前空間。                    |

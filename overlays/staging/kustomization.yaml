@@ -1,0 +1,47 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base/
+
+commonLabels:
+  application: myeap
+
+patchesJson6902:
+- target:
+    version: v1alpha1
+    kind: WildFlyServer
+    name: myeap-blue
+  patch: |-
+    - op: replace
+      path: /spec/applicationImage
+      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:latest
+    - op: replace
+      path: /spec/replicas
+      value: 2
+
+- target:
+    version: v1alpha1
+    kind: WildFlyServer
+    name: myeap-green
+  patch: |-
+    - op: replace
+      path: /spec/applicationImage
+      value: image-registry.openshift-image-registry.svc:5000/myeap-dev/my-eap-webapp:latest
+    - op: replace
+      path: /spec/replicas
+      value: 1
+
+- target:
+    version: v1
+    kind: Route
+    name: myeap
+  patch: |-
+    # Weight of myeap-blue
+    - op: replace
+      path: /spec/to/weight
+      value: 100
+    # Weight of myeap-green
+    - op: replace
+      path: /spec/alternateBackends/0/weight
+      value: 0

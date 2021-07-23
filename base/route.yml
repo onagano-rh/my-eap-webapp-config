@@ -12,4 +12,9 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: myeap-loadbalancer
+    name: myeap-blue-loadbalancer
+    weight: 100
+  alternateBackends:
+    - kind: Service
+      name: myeap-green-loadbalancer
+      weight: 0
